@@ -21,17 +21,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentValue = lroundf(slider.value)
         
-        startNewRound()
-        // Do any additional setup after loading the view, typically from a nib.
+        startNewGame()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func startNewRound() {
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = 50
@@ -98,5 +96,11 @@ class ViewController: UIViewController {
         alert.addAction(action)
     }
     
+    @IBAction func startNewGame() {
+        roundNumber = 0
+        score = 0
+        
+        startNewRound()
+    }
 }
 
