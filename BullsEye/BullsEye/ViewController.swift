@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = 50
         slider.value = Float(currentValue)
-        roundNumber = roundNumber + 1
+        roundNumber += 1
         
         updateLabels()
     }
@@ -47,10 +47,28 @@ class ViewController: UIViewController {
         scoreLabel.text = String(score)
     }
     
-    func calculateScore() -> Int {
-        let score = abs(targetValue - currentValue)
+    func calculateDifference() -> Int {
+        return abs(targetValue - currentValue)
+    }
+    
+    func createBonusPoints() -> (title: String, points: Int) {
+        let difference = calculateDifference()
+        var points = 100 - difference
+        var title = "Not even close..."
         
-        return 100 - score
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        } else if difference < 5 {
+            title = "You almost had it!"
+            if difference == 1 {
+                points += 50
+            }
+        } else if difference < 10 {
+            title = "Pretty good!"
+        }
+        
+        return (title, points)
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
@@ -58,12 +76,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAlert(_ sender: UIButton) {
-        let roundScore = calculateScore()
-        score = score + roundScore
-
-        let message = "Total score is: \(roundScore)"
+        let points = createBonusPoints().points
+        let title = createBonusPoints().title
         
-        let alert = UIAlertController(title: "Hello World",
+        score += points
+
+        let message = "Total score is: \(points)"
+        
+        let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: UIAlertControllerStyle.alert)
         
