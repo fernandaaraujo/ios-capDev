@@ -11,9 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     var currentValue: Int = 50
     var targetValue: Int = 0
+    var roundNumber: Int = 0
+    var score: Int = 0
 
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetNumber: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +34,23 @@ class ViewController: UIViewController {
     
     func startNewRound() {
         targetValue = 1 + Int(arc4random_uniform(100))
+        currentValue = 50
         slider.value = Float(currentValue)
+        roundNumber = roundNumber + 1
         
         updateLabels()
     }
     
     func updateLabels() {
         targetNumber.text = String(targetValue)
+        roundLabel.text = String(roundNumber)
+        scoreLabel.text = String(score)
+    }
+    
+    func calculateScore() -> Int {
+        let score = abs(targetValue - currentValue)
+        
+        return 100 - score
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
@@ -44,16 +58,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAlert(_ sender: UIButton) {
-        let message = "The value of the slider is: \(currentValue)" +
-                        "\nThe target value is: \(targetValue)"
+        let roundScore = calculateScore()
+        score = score + roundScore
+
+        let message = "Total score is: \(roundScore)"
         
-        let alert = UIAlertController(title: "Hello World", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Hello World",
+                                      message: message,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        
+        let action = UIAlertAction(title: "OK",
+                                   style: UIAlertActionStyle.default,
+                                   handler: { action in
+                                                self.startNewRound()
+                                            })
+
         present(alert, animated: true, completion: nil)
         
-        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(action)
-        
-        startNewRound()
     }
     
 }
