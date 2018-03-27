@@ -15,6 +15,7 @@
 		91112CF62069245600BD517F /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91112CF52069245600BD517F /* BullsEyeTests.swift */; };
 		91112D012069245600BD517F /* BullsEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91112D002069245600BD517F /* BullsEyeUITests.swift */; };
 		91112D0F2069B10700BD517F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91112D0E2069B10700BD517F /* AboutViewController.swift */; };
+		916ED5E02069C69E004D01C8 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 916ED5DF2069C69E004D01C8 /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		91112D002069245600BD517F /* BullsEyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeUITests.swift; sourceTree = "<group>"; };
 		91112D022069245600BD517F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91112D0E2069B10700BD517F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		916ED5DF2069C69E004D01C8 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		91112CDF2069245600BD517F /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				916ED5DF2069C69E004D01C8 /* BullsEye.html */,
 				91112CE02069245600BD517F /* AppDelegate.swift */,
 				91112CE22069245600BD517F /* ViewController.swift */,
 				91112CE42069245600BD517F /* Main.storyboard */,
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91112CEB2069245600BD517F /* LaunchScreen.storyboard in Resources */,
+				916ED5E02069C69E004D01C8 /* BullsEye.html in Resources */,
 				91112CE82069245600BD517F /* Assets.xcassets in Resources */,
 				91112CE62069245600BD517F /* Main.storyboard in Resources */,
 			);
@@ -431,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S759ART4ZH;
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtworks.BullsEye;
@@ -445,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S759ART4ZH;
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtworks.BullsEye;
