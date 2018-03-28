@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2m0-bK-jIp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2m0-bK-jIp">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,7 +43,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="PAr-uS-lZ7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="v0I-2x-3M6">
                             <connections>
-                                <segue destination="CEC-R2-Xia" kind="show" id="U5d-Yc-mK3"/>
+                                <segue destination="CEC-R2-Xia" kind="show" identifier="AddItem" id="U5d-Yc-mK3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -100,12 +100,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="L3a-bp-j4D">
                             <connections>
-                                <action selector="done" destination="CEC-R2-Xia" id="Ymp-rQ-qp1"/>
+                                <action selector="done" destination="CEC-R2-Xia" id="L1m-p4-VJM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneBarButton" destination="L3a-bp-j4D" id="qGe-dD-ywb"/>
+                        <outlet property="doneBarButton" destination="L3a-bp-j4D" id="G1a-5J-T3j"/>
                         <outlet property="textField" destination="8rI-q4-fCA" id="fWj-v3-WZM"/>
                     </connections>
                 </tableViewController>
