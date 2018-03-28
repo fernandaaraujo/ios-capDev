@@ -90,6 +90,11 @@ class ChecklistViewController: UITableViewController {
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
+    override func tableView(_ tableView: UITableView,
+                            willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    
     func configureCheckmark(for cell: UITableViewCell,
                             with item: ChecklistItem) {
         if item.checked {
