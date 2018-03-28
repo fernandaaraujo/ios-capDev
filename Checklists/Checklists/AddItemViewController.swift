@@ -8,8 +8,9 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
-
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
     
     override func viewDidLoad() {
@@ -32,4 +33,17 @@ class AddItemViewController: UITableViewController {
 
         navigationController?.popViewController(animated: true)
     }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let oldText = textField.text!
+        let stringRange = Range(range, in:oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange,
+                                                  with: string)
+        doneBarButton.isEnabled = !newText.isEmpty
+        
+        return true
+    }
 }
+
