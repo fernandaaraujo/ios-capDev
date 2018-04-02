@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		914E1437206AE78800A46DEB /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E1436206AE78800A46DEB /* ChecklistItem.swift */; };
 		914E1457206BE56400A46DEB /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E1456206BE56400A46DEB /* ItemDetailViewController.swift */; };
+		91929889206EDD5400EB9616 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929888206EDD5400EB9616 /* AllListsViewController.swift */; };
+		91C4E602206FEF4800E2F3F3 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4E601206FEF4800E2F3F3 /* Checklist.swift */; };
+		91C4E6042071566900E2F3F3 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4E6032071566900E2F3F3 /* ListDetailViewController.swift */; };
+		91C4E6062071DC0100E2F3F3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4E6052071DC0100E2F3F3 /* DataModel.swift */; };
 		91DBA665206A8D6000A6A926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBA664206A8D6000A6A926 /* AppDelegate.swift */; };
 		91DBA667206A8D6000A6A926 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBA666206A8D6000A6A926 /* ChecklistViewController.swift */; };
 		91DBA66A206A8D6000A6A926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DBA668206A8D6000A6A926 /* Main.storyboard */; };
@@ -19,6 +23,10 @@
 /* Begin PBXFileReference section */
 		914E1436206AE78800A46DEB /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		914E1456206BE56400A46DEB /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		91929888206EDD5400EB9616 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		91C4E601206FEF4800E2F3F3 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		91C4E6032071566900E2F3F3 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		91C4E6052071DC0100E2F3F3 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		91DBA661206A8D6000A6A926 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DBA664206A8D6000A6A926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91DBA666206A8D6000A6A926 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +47,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91C4E6072071E35700E2F3F3 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				91C4E601206FEF4800E2F3F3 /* Checklist.swift */,
+				914E1436206AE78800A46DEB /* ChecklistItem.swift */,
+				91C4E6052071DC0100E2F3F3 /* DataModel.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		91C4E6082071E38200E2F3F3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				91929888206EDD5400EB9616 /* AllListsViewController.swift */,
+				91DBA666206A8D6000A6A926 /* ChecklistViewController.swift */,
+				914E1456206BE56400A46DEB /* ItemDetailViewController.swift */,
+				91C4E6032071566900E2F3F3 /* ListDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		91C4E6092071E39D00E2F3F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				91DBA66B206A8D6000A6A926 /* Assets.xcassets */,
+				91DBA66D206A8D6000A6A926 /* LaunchScreen.storyboard */,
+				91DBA668206A8D6000A6A926 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		91DBA658206A8D5F00A6A926 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +97,11 @@
 		91DBA663206A8D6000A6A926 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
+				91C4E6072071E35700E2F3F3 /* Data Models */,
+				91C4E6092071E39D00E2F3F3 /* Resources */,
+				91C4E6082071E38200E2F3F3 /* View Controllers */,
 				91DBA664206A8D6000A6A926 /* AppDelegate.swift */,
-				91DBA666206A8D6000A6A926 /* ChecklistViewController.swift */,
-				91DBA668206A8D6000A6A926 /* Main.storyboard */,
-				91DBA66B206A8D6000A6A926 /* Assets.xcassets */,
-				91DBA66D206A8D6000A6A926 /* LaunchScreen.storyboard */,
 				91DBA670206A8D6000A6A926 /* Info.plist */,
-				914E1436206AE78800A46DEB /* ChecklistItem.swift */,
-				914E1456206BE56400A46DEB /* ItemDetailViewController.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -97,7 +133,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = thoughtworks;
 				TargetAttributes = {
 					91DBA660206A8D6000A6A926 = {
@@ -143,8 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				91DBA667206A8D6000A6A926 /* ChecklistViewController.swift in Sources */,
+				91C4E6042071566900E2F3F3 /* ListDetailViewController.swift in Sources */,
 				914E1457206BE56400A46DEB /* ItemDetailViewController.swift in Sources */,
+				91C4E602206FEF4800E2F3F3 /* Checklist.swift in Sources */,
 				914E1437206AE78800A46DEB /* ChecklistItem.swift in Sources */,
+				91C4E6062071DC0100E2F3F3 /* DataModel.swift in Sources */,
+				91929889206EDD5400EB9616 /* AllListsViewController.swift in Sources */,
 				91DBA665206A8D6000A6A926 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +225,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -192,6 +233,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -242,6 +284,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -249,6 +292,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
