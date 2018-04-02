@@ -11,6 +11,13 @@ import CoreLocation
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var tagButton: UIButton!
+    @IBOutlet weak var getButton: UIButton!
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -20,7 +27,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func getLocation() {
