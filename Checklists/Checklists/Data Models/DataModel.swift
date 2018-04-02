@@ -13,12 +13,10 @@ class DataModel {
     
     var indexOfSelectedChecklist: Int {
         get {
-            return UserDefaults.standard.integer(
-                forKey: "ChecklistIndex")
+            return UserDefaults.standard.integer(forKey: "ChecklistIndex")
         }
         set {
-            UserDefaults.standard.set(newValue,
-                                      forKey: "ChecklistIndex")
+            UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
             UserDefaults.standard.synchronize()
         }
     }
@@ -38,6 +36,7 @@ class DataModel {
     func handleFirstTime() {
         let userDefaults = UserDefaults.standard
         let firstTime = userDefaults.bool(forKey: "FirstTime")
+        
         if firstTime {
             let checklist = Checklist(name: "List")
             lists.append(checklist)
@@ -87,5 +86,13 @@ class DataModel {
         lists.sort(by: { checklist1, checklist2 in
             return checklist1.name.localizedStandardCompare(
                 checklist2.name) == .orderedAscending })
+    }
+    
+    class func nextChecklistItemID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        userDefaults.synchronize()
+        return itemID
     }
 }

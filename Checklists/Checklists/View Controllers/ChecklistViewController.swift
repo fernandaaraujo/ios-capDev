@@ -94,7 +94,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureText(for cell: UITableViewCell,
                        with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
-        
         label.text = item.text
     }
     
@@ -104,7 +103,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController,
-                               didFinishAdding item: ChecklistItem) {
+                                  didFinishAdding item: ChecklistItem) {
         let newRowIndex = checklist.items.count
         checklist.items.append(item)
         
@@ -116,7 +115,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController,
-                               didFinishEditing item: ChecklistItem) {
+                                  didFinishEditing item: ChecklistItem) {
         if let index = checklist.items.index(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
             

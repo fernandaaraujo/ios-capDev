@@ -22,14 +22,14 @@ class AllListsViewController: UITableViewController,
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         navigationController?.delegate = self
         
         let index = dataModel.indexOfSelectedChecklist
         
         if index >= 0 && index < dataModel.lists.count {
             let checklist = dataModel.lists[index]
-            performSegue(withIdentifier: "ShowChecklist",
-                         sender: checklist)
+            performSegue(withIdentifier: "ShowChecklist", sender: checklist)
         }
     }
 
@@ -82,9 +82,9 @@ class AllListsViewController: UITableViewController,
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {
-        dataModel.indexOfSelectedChecklist = indexPath.row
-
+        dataModel.lists.remove(at: indexPath.row)
         let indexPaths = [indexPath]
+        
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
