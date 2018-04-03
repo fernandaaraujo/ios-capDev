@@ -44,7 +44,14 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             return
         }
         
-        startLocationManager()
+        if updatingLocation {
+            stopLocationManager()
+        } else {
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
+
         updateLabels()
     }
     
@@ -57,32 +64,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                                      handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK:- CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager,
-                         didFailWithError error: Error) {
-        print("didFailWithError \(error)")
-        
-        if (error as NSError).code == CLError.locationUnknown.rawValue {
-            return
-        }
-        
-        lastLocationError = error
-        
-        stopLocationManager()
-        updateLabels()
-    }
-    
-    func locationManager(_ manager: CLLocationManager,
-                         didUpdateLocations locations: [CLLocation]) {
-        let newLocation = locations.last!
-        print("didUpdateLocations \(newLocation)")
-        
-        location = newLocation
-        lastLocationError = nil
-        updateLabels()
     }
     
     func updateLabels() {
@@ -117,6 +98,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             
             messageLabel.text = statusMessage
         }
+        
+        configureGetButton()
+    }
+    
+    func configureGetButton() {
+        if updatingLocation {
+            getButton.setTitle("Stop", for: .normal)
+        } else {
+            getButton.setTitle("Get My Location", for: .normal)
+        }
     }
     
     func stopLocationManager() {
@@ -133,6 +124,48 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+        }
+    }
+    
+    // MARK:- CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
+        print("didFailWithError \(error)")
+        
+        if (error as NSError).code == CLError.locationUnknown.rawValue {
+            return
+        }
+        
+        lastLocationError = error
+        
+        stopLocationManager()
+        updateLabels()
+    }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last!
+        print("didUpdateLocations \(newLocation)")
+        
+        if newLocation.timestamp.timeIntervalSinceNow < -5 {
+            return
+        }
+        
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
+            lastLocationError = nil
+            location = newLocation
+            
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
+                print("*** We're done!")
+                stopLocationManager()
+            }
+            
+            updateLabels()
         }
     }
 }
