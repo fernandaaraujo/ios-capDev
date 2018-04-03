@@ -288,7 +288,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="at5-9l-fiy" eventType="editingDidEndOnExit" id="qrl-d6-0fe"/>
-                                                        <outlet property="delegate" destination="gXb-25-O3Z" id="71v-WM-QZO"/>
+                                                        <outlet property="delegate" destination="at5-9l-fiy" id="YBb-p9-yGh"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -351,7 +351,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="fby-oP-ZFD">
                             <connections>
-                                <action selector="done" destination="at5-9l-fiy" id="wR9-PO-5RA"/>
+                                <action selector="done" destination="at5-9l-fiy" id="gl6-fk-jCx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
