@@ -26,6 +26,7 @@
 		91C5BE672076648C001F4CC2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5BE662076648C001F4CC2 /* MapViewController.swift */; };
 		91DC95A92076AED7001AB1D7 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915579462075462B00AF4756 /* Location+CoreDataClass.swift */; };
 		91DC95AB20780237001AB1D7 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC95AA20780237001AB1D7 /* UIImage+Resize.swift */; };
+		91DC95AD20780BD0001AB1D7 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC95AC20780BD0001AB1D7 /* String+AddText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		91C5BE6420766305001F4CC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		91C5BE662076648C001F4CC2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		91DC95AA20780237001AB1D7 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		91DC95AC20780BD0001AB1D7 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				9155794C2075BBF700AF4756 /* LocationCell.swift */,
 				91C5BE662076648C001F4CC2 /* MapViewController.swift */,
 				91DC95AA20780237001AB1D7 /* UIImage+Resize.swift */,
+				91DC95AC20780BD0001AB1D7 /* String+AddText.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				915579492075462B00AF4756 /* Location+CoreDataProperties.swift in Sources */,
 				91C5BE672076648C001F4CC2 /* MapViewController.swift in Sources */,
 				9155794D2075BBF700AF4756 /* LocationCell.swift in Sources */,
+				91DC95AD20780BD0001AB1D7 /* String+AddText.swift in Sources */,
 				9155792220752D6A00AF4756 /* Functions.swift in Sources */,
 				915F7DC320729C7400458C1B /* AppDelegate.swift in Sources */,
 				9155791E207484DA00AF4756 /* CategoryPickerViewController.swift in Sources */,
