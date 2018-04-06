@@ -34,14 +34,19 @@ class LocationsViewController: UITableViewController {
             return fetchedResultsController
     }()
     
-    deinit {
-        fetchedResultsController.delegate = nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = editButtonItem
         performFetch()
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        NSLog("Received memory warning")
+    }
+    
+    deinit {
+        fetchedResultsController.delegate = nil
     }
     
     // MARK: - Table View Delegates
@@ -79,7 +84,7 @@ class LocationsViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-            return fetchedResultsController.sections!.count
+        return fetchedResultsController.sections!.count
     }
     
     override func tableView(_ tableView: UITableView,
@@ -95,8 +100,7 @@ class LocationsViewController: UITableViewController {
             let controller = segue.destination as! LocationDetailsViewController
             controller.managedObjectContext = managedObjectContext
             
-            if let indexPath = tableView.indexPath(for: sender
-                as! UITableViewCell) {
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 let location = fetchedResultsController.object(at: indexPath)
                 controller.locationToEdit = location
             }

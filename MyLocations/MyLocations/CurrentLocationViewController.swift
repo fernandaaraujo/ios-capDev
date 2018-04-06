@@ -46,10 +46,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         navigationController?.isNavigationBarHidden = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     @IBAction func getLocation() {
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus == .notDetermined {
@@ -67,9 +63,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         } else {
             location = nil
             lastLocationError = nil
-            startLocationManager()
             placemark = nil
             lastGeocodingError = nil
+            startLocationManager()
         }
 
         updateLabels()

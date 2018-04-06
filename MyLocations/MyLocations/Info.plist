@@ -43,9 +43,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app lets you keep track of interesting places. It needs access to the GPS
-coordinates for your location.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -53,5 +50,12 @@ coordinates for your location.</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app lets you keep track of interesting places. It needs access to the GPS
+coordinates for your location.</string>
+	<key>Privacy - Photo Library Usage DescriptionLibrary Usage Description</key>
+	<string>Add photos to your locations.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Add photos to your locations.</string>
 </dict>
 </plist>
