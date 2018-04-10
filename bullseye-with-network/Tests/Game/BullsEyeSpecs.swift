@@ -80,6 +80,15 @@ class BullsEyeSpecs: QuickSpec {
           expect(bullsEye.score).to(equal(expectedScore))
         }
       }
+      
+      describe("resetGame") {
+        it("resets game round and score") {
+          bullsEye.resetGame()
+          
+          expect(bullsEye.round).to(equal(1))
+          expect(bullsEye.score).to(equal(0))
+        }
+      }
     }
   }
 }
