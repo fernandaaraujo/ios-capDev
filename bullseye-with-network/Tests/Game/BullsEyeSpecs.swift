@@ -66,6 +66,19 @@ class BullsEyeSpecs: QuickSpec {
           
           expect(bullsEye.score).to(equal(expectedScore))
         }
+        
+        it("sums pontuation to currently score") {
+          let hitValue = 50
+          let targetValue = bullsEye.target
+          var expectedScore = 100 - abs(targetValue - hitValue)
+          
+          bullsEye.hit(value: hitValue)
+          bullsEye.hit(value: hitValue)
+          
+          expectedScore += expectedScore
+          
+          expect(bullsEye.score).to(equal(expectedScore))
+        }
       }
     }
   }

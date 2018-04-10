@@ -32,7 +32,7 @@ class BullsEye: Game {
   }
     
     func hit(value: Int) {
-        score = 100 - abs(target - value)
+        score = score + 100 - abs(target - value)
     }
   
   private func generateRandomNumber() -> Int {
