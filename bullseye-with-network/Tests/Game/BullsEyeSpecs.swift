@@ -133,6 +133,17 @@ class BullsEyeSpecs: QuickSpec {
             expect(bullsEye.message).to(equal(message))
           }
         }
+        
+        context("when users misses the value by less than 10 points") {
+          it("shows to user the message Pretty good!") {
+            let hitValue = bullsEye.target - 9
+            let message = "Pretty good!"
+            
+            bullsEye.hit(value: hitValue)
+            
+            expect(bullsEye.message).to(equal(message))
+          }
+        }
       }
       
       describe("points") {
