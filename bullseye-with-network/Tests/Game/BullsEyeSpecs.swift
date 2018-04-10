@@ -123,10 +123,17 @@ class BullsEyeSpecs: QuickSpec {
       
       describe("resetGame") {
         it("resets game round and score") {
+          let hitValue = 70
+          let oldTarget = bullsEye.target
+          bullsEye.hit(value: hitValue)
+          bullsEye.hit(value: hitValue)
+
           bullsEye.resetGame()
+          let newTarget = bullsEye.target
           
           expect(bullsEye.round).to(equal(1))
           expect(bullsEye.score).to(equal(0))
+          expect(newTarget).toNot(equal(oldTarget))
         }
       }
     }
