@@ -9,82 +9,95 @@
 import Foundation
 
 protocol Game {
-    var round: Int { get }
-    var target: Int { get }
-    var score: Int { get }
-    
-    func newRound()
-    func hit(value: Int)
-    func resetGame()
+  var round: Int { get }
+  var target: Int { get }
+  var score: Int { get }
+  
+  func newRound()
+  func hit(value: Int)
+  func resetGame()
 }
 
 enum Bonus: Int {
-    case perfect = 100
+  case perfect = 100
 }
 
 class BullsEye: Game {
-    var round = 1
-    var target = 0
-    var score = 0
-    var points = 0
-    var message = ""
+  var round = 1
+  var target = 0
+  var score = 0
+  var points = 0
+  var message = ""
+  
+  init() {
+    target = generateRandomNumber()
+  }
+  
+  func newRound() {
+    round += 1
+    target = generateRandomNumber()
+  }
+  
+  func hit(value: Int) {
+    points = calculatePoints(value: value)
+    message = definesGameMessage(value: value)
     
-    init() {
-        target = generateRandomNumber()
+    score += points
+  }
+  
+  func resetGame() {
+    score = 0
+    round = 1
+    target = generateRandomNumber()
+  }
+  
+  private func generateRandomNumber() -> Int {
+    var randomTarget = target
+    
+    while randomTarget == target {
+      randomTarget = 1 + Int(arc4random_uniform(100))
     }
     
-    func newRound() {
-        round += 1
-        target = generateRandomNumber()
+    return randomTarget
+  }
+  
+  private func calculatePoints(value: Int) -> Int {
+    let difference = calculateDifference(hitValue: value)
+    
+    return calculateBonus(difference: difference)
+  }
+  
+  private func definesGameMessage(value: Int) -> String {
+    let difference = calculateDifference(hitValue: value)
+    
+    switch difference {
+    case 0:
+      return "Perfect!"
+      
+    case 1..<5:
+      return "You almost had it!"
+      
+    case 5..<10:
+      return "Pretty good!"
+      
+    default:
+      return "Not even close..."
+    }
+  }
+  
+  private func calculateDifference(hitValue: Int) -> Int {
+    return abs(target - hitValue)
+  }
+  
+  private func calculateBonus(difference: Int) -> Int {
+    var currentPoints = 100 - difference
+    
+    if difference == 0 {
+      currentPoints += 100
+    } else if difference == 1 {
+      currentPoints += 50
     }
     
-    func hit(value: Int) {
-        points = calculatePoints(value: value)
-        
-        score += points
-    }
-    
-    func resetGame() {
-        score = 0
-        round = 1
-        target = generateRandomNumber()
-    }
-    
-    private func generateRandomNumber() -> Int {
-        var randomTarget = target
-        
-        while randomTarget == target {
-            randomTarget = 1 + Int(arc4random_uniform(100))
-        }
-        
-        return randomTarget
-    }
-    
-    private func calculatePoints(value: Int) -> Int {
-        let difference = calculateDifference(hitValue: value)
-        
-        return calculateBonus(difference: difference)
-    }
-    
-    private func calculateDifference(hitValue: Int) -> Int {
-        return abs(target - hitValue)
-    }
-    
-    private func calculateBonus(difference: Int) -> Int {
-        var currentPoints = 100 - difference
-        
-        if difference == 0 {
-            currentPoints += 100
-            message = "Perfect!"
-        } else if difference == 1 {
-            currentPoints += 50
-            message = "You almost had it!"
-        } else if difference < 10 {
-            message = "Pretty good!"
-        } else {
-            message = "Not even close..."
-        }
-        
-        return currentPoints
-    }
+    return currentPoints
+  }
 }
