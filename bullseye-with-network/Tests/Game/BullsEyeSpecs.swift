@@ -91,6 +91,17 @@ class BullsEyeSpecs: QuickSpec {
             
             expect(bullsEye.score).to(equal(expectedScore))
           }
+          
+          it("user misses the value by 1 point") {
+            let hitValue = bullsEye.target - 1
+            let targetValue = bullsEye.target
+            let bonus = 50
+            let expectedScore = 100 - abs(targetValue - hitValue) + bonus
+            
+            bullsEye.hit(value: hitValue)
+            
+            expect(bullsEye.score).to(equal(expectedScore))
+          }
         }
       }
       

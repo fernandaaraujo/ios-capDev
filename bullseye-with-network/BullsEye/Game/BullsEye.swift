@@ -39,6 +39,8 @@ class BullsEye: Game {
         
         if difference == 0 {
             points += 100
+        } else if difference == 1 {
+            points += 50
         }
         
         score += points
