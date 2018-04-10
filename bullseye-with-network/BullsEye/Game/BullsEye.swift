@@ -78,6 +78,7 @@ class BullsEye: Game {
             message = "Perfect!"
         } else if difference == 1 {
             currentPoints += 50
+            message = "You almost had it!"
         }
         
         return currentPoints

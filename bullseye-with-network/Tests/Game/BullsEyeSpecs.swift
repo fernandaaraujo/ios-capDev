@@ -123,6 +123,15 @@ class BullsEyeSpecs: QuickSpec {
             
             expect(bullsEye.score).to(equal(expectedScore))
           }
+          
+          it("shows to user the message You almost had it!") {
+            let hitValue = bullsEye.target - 1
+            let message = "You almost had it!"
+            
+            bullsEye.hit(value: hitValue)
+            
+            expect(bullsEye.message).to(equal(message))
+          }
         }
       }
       
