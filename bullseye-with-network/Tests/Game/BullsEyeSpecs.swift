@@ -55,6 +55,18 @@ class BullsEyeSpecs: QuickSpec {
           expect(bullsEye.target).to(beLessThanOrEqualTo(100))
         }
       }
+      
+      describe("score") {
+        it("increments score after hit a value") {
+          let hitValue = 50
+          let targetValue = bullsEye.target
+          let expectedScore = 100 - abs(targetValue - hitValue)
+          
+          bullsEye.hit(value: hitValue)
+          
+          expect(bullsEye.score).to(equal(expectedScore))
+        }
+      }
     }
   }
 }
