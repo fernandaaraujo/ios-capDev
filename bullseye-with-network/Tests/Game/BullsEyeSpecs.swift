@@ -101,6 +101,15 @@ class BullsEyeSpecs: QuickSpec {
             
             expect(bullsEye.score).to(equal(expectedScore))
           }
+          
+          it("shows to user the message Perfect!") {
+            let hitValue = bullsEye.target
+            let message = "Perfect!"
+            
+            bullsEye.hit(value: hitValue)
+            
+            expect(bullsEye.message).to(equal(message))
+          }
         }
         
         context("when users misses the value by 1 point") {

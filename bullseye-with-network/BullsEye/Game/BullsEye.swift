@@ -27,6 +27,7 @@ class BullsEye: Game {
     var target = 0
     var score = 0
     var points = 0
+    var message = ""
     
     init() {
         target = generateRandomNumber()
@@ -74,6 +75,7 @@ class BullsEye: Game {
         
         if difference == 0 {
             currentPoints += 100
+            message = "Perfect!"
         } else if difference == 1 {
             currentPoints += 50
         }
