@@ -57,23 +57,27 @@ class BullsEyeSpecs: QuickSpec {
       }
       
       describe("score") {
+        var hitValue: Int!
+        var targetValue: Int!
+        
+        beforeEach {
+          hitValue = 50
+          targetValue = bullsEye.target
+        }
+        
         it("starts as 0") {
           expect(bullsEye.score).to(equal(0))
         }
-
+        
         it("increments score after hit a value") {
-          let hitValue = 50
-          let targetValue = bullsEye.target
           let expectedScore = 100 - abs(targetValue - hitValue)
-          
+
           bullsEye.hit(value: hitValue)
           
           expect(bullsEye.score).to(equal(expectedScore))
         }
         
         it("sums pontuation to currently score") {
-          let hitValue = 50
-          let targetValue = bullsEye.target
           var expectedScore = 100 - abs(targetValue - hitValue)
           
           bullsEye.hit(value: hitValue)
@@ -83,9 +87,11 @@ class BullsEyeSpecs: QuickSpec {
           
           expect(bullsEye.score).to(equal(expectedScore))
         }
-        
-        describe("bonus") {
-          it("user hit exact target") {
+      }
+      
+      describe("hit") {
+        context("when users hit exact target") {
+          it("score receive 100 bonus points") {
             let hitValue = bullsEye.target
             let targetValue = bullsEye.target
             let bonus = 100
@@ -95,8 +101,10 @@ class BullsEyeSpecs: QuickSpec {
             
             expect(bullsEye.score).to(equal(expectedScore))
           }
-          
-          it("user misses the value by 1 point") {
+        }
+        
+        context("when users misses the value by 1 point") {
+          it("score receive 50 bonus points") {
             let hitValue = bullsEye.target - 1
             let targetValue = bullsEye.target
             let bonus = 50
