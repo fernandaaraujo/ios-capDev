@@ -81,7 +81,7 @@ class BullsEyeSpecs: QuickSpec {
         }
         
         describe("bonus") {
-          it("users hit exact target") {
+          it("user hit exact target") {
             let hitValue = bullsEye.target
             let targetValue = bullsEye.target
             let bonus = 100
@@ -95,7 +95,7 @@ class BullsEyeSpecs: QuickSpec {
       }
       
       describe("points") {
-        it("difference is a positive number") {
+        it("difference between target and hit is a positive number") {
           let hitValue = 100
           let targetValue = bullsEye.target
           let points = 100 - abs(targetValue - hitValue)
