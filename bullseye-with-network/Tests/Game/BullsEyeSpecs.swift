@@ -70,18 +70,20 @@ class BullsEyeSpecs: QuickSpec {
         }
         
         it("increments score after hit a value") {
-          let expectedScore = 100 - abs(targetValue - hitValue)
+          let guess = abs(targetValue - hitValue)
+          let expectedScore = 100 - guess
 
-          bullsEye.hit(value: hitValue)
+          _ = bullsEye.hit(value: hitValue)
           
           expect(bullsEye.score).to(equal(expectedScore))
         }
         
         it("sums pontuation to currently score") {
-          var expectedScore = 100 - abs(targetValue - hitValue)
+          let guess = abs(targetValue - hitValue)
+          var expectedScore = 100 - guess
           
-          bullsEye.hit(value: hitValue)
-          bullsEye.hit(value: hitValue)
+          _ = bullsEye.hit(value: hitValue)
+          _ = bullsEye.hit(value: hitValue)
           
           expectedScore += expectedScore
           
@@ -101,19 +103,18 @@ class BullsEyeSpecs: QuickSpec {
           
           it("score receive 100 bonus points") {
             let bonus = 100
-            let expectedScore = 100 - abs(targetValue - hitValue) + bonus
+            let guess = abs(targetValue - hitValue)
+            let expectedScore = 100 - guess + bonus
             
-            bullsEye.hit(value: hitValue)
+            _ = bullsEye.hit(value: hitValue)
             
             expect(bullsEye.score).to(equal(expectedScore))
           }
           
-          it("shows to user the message Perfect!") {
-            let message = "Perfect!"
+          it("returns that user had perfect hit") {
+            let perfection = bullsEye.hit(value: hitValue)
             
-            bullsEye.hit(value: hitValue)
-            
-            expect(bullsEye.message).to(equal(message))
+            expect(perfection).to(equal(Perfection.perfect))
           }
         }
         
@@ -128,41 +129,36 @@ class BullsEyeSpecs: QuickSpec {
           
           it("score receive 50 bonus points") {
             let bonus = 50
-            let expectedScore = 100 - abs(targetValue - hitValue) + bonus
+            let guess = abs(targetValue - hitValue)
+            let expectedScore = 100 - guess + bonus
             
-            bullsEye.hit(value: hitValue)
+            _ = bullsEye.hit(value: hitValue)
             
             expect(bullsEye.score).to(equal(expectedScore))
           }
           
-          it("shows to user the message You almost had it!") {
-            let message = "You almost had it!"
+          it("returns that user almost had it") {
+            let perfection = bullsEye.hit(value: hitValue)
             
-            bullsEye.hit(value: hitValue)
-            
-            expect(bullsEye.message).to(equal(message))
+            expect(perfection).to(equal(Perfection.almost))
           }
         }
         
         context("when users misses the value by less than 10 points") {
-          it("shows to user the message Pretty good!") {
+          it("returns that user had pretty good hit") {
             let hitValue = bullsEye.target - 9
-            let message = "Pretty good!"
+            let perfection = bullsEye.hit(value: hitValue)
             
-            bullsEye.hit(value: hitValue)
-            
-            expect(bullsEye.message).to(equal(message))
+            expect(perfection).to(equal(Perfection.prettyGood))
           }
         }
         
         context("when users misses the value by more than 10 points") {
-          it("shows to user the message Not even close...") {
+          it("returns that user not even close") {
             let hitValue = bullsEye.target - 20
-            let message = "Not even close..."
+            let perfection = bullsEye.hit(value: hitValue)
             
-            bullsEye.hit(value: hitValue)
-            
-            expect(bullsEye.message).to(equal(message))
+            expect(perfection).to(equal(Perfection.notEvenClose))
           }
         }
       }
@@ -171,9 +167,10 @@ class BullsEyeSpecs: QuickSpec {
         it("difference between target and hit is a positive number") {
           let hitValue = 100
           let targetValue = bullsEye.target
-          let points = 100 - abs(targetValue - hitValue)
+          let guess = abs(targetValue - hitValue)
+          let points = 100 - guess
 
-          bullsEye.hit(value: hitValue)
+          _ = bullsEye.hit(value: hitValue)
 
           expect(bullsEye.points).to(equal(points))
         }
@@ -183,8 +180,8 @@ class BullsEyeSpecs: QuickSpec {
         it("resets game round and score") {
           let hitValue = 70
           let oldTarget = bullsEye.target
-          bullsEye.hit(value: hitValue)
-          bullsEye.hit(value: hitValue)
+          _ = bullsEye.hit(value: hitValue)
+          _ = bullsEye.hit(value: hitValue)
 
           bullsEye.resetGame()
           let newTarget = bullsEye.target

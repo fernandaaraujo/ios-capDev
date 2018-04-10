@@ -14,12 +14,15 @@ protocol Game {
   var score: Int { get }
   
   func newRound()
-  func hit(value: Int)
+  func hit(value: Int) -> Perfection
   func resetGame()
 }
 
-enum Bonus: Int {
-  case perfect = 100
+enum Perfection {
+  case perfect
+  case almost
+  case prettyGood
+  case notEvenClose
 }
 
 class BullsEye: Game {
@@ -38,11 +41,12 @@ class BullsEye: Game {
     target = generateRandomNumber()
   }
   
-  func hit(value: Int) {
+  func hit(value: Int) -> Perfection {
     points = calculatePoints(value: value)
-    message = definesGameMessage(value: value)
     
     score += points
+    
+    return definesGameMessage(value: value)
   }
   
   func resetGame() {
@@ -67,21 +71,21 @@ class BullsEye: Game {
     return calculateBonus(difference: difference)
   }
   
-  private func definesGameMessage(value: Int) -> String {
+  private func definesGameMessage(value: Int) -> Perfection {
     let difference = calculateDifference(hitValue: value)
     
     switch difference {
     case 0:
-      return "Perfect!"
+      return .perfect
       
     case 1..<5:
-      return "You almost had it!"
+      return .almost
       
     case 5..<10:
-      return "Pretty good!"
+      return .prettyGood
       
     default:
-      return "Not even close..."
+      return .notEvenClose
     }
   }
   
