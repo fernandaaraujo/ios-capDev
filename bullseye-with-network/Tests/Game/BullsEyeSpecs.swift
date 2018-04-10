@@ -91,9 +91,15 @@ class BullsEyeSpecs: QuickSpec {
       
       describe("hit") {
         context("when users hit exact target") {
+          var targetValue: Int!
+          var hitValue: Int!
+          
+          beforeEach {
+            targetValue = bullsEye.target
+            hitValue = targetValue
+          }
+          
           it("score receive 100 bonus points") {
-            let hitValue = bullsEye.target
-            let targetValue = bullsEye.target
             let bonus = 100
             let expectedScore = 100 - abs(targetValue - hitValue) + bonus
             
@@ -103,7 +109,6 @@ class BullsEyeSpecs: QuickSpec {
           }
           
           it("shows to user the message Perfect!") {
-            let hitValue = bullsEye.target
             let message = "Perfect!"
             
             bullsEye.hit(value: hitValue)
@@ -113,9 +118,15 @@ class BullsEyeSpecs: QuickSpec {
         }
         
         context("when users misses the value by 1 point") {
+          var targetValue: Int!
+          var hitValue: Int!
+          
+          beforeEach {
+            targetValue = bullsEye.target
+            hitValue = targetValue - 1
+          }
+          
           it("score receive 50 bonus points") {
-            let hitValue = bullsEye.target - 1
-            let targetValue = bullsEye.target
             let bonus = 50
             let expectedScore = 100 - abs(targetValue - hitValue) + bonus
             
@@ -125,7 +136,6 @@ class BullsEyeSpecs: QuickSpec {
           }
           
           it("shows to user the message You almost had it!") {
-            let hitValue = bullsEye.target - 1
             let message = "You almost had it!"
             
             bullsEye.hit(value: hitValue)
