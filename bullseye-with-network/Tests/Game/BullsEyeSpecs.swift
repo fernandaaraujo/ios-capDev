@@ -32,11 +32,18 @@ class BullsEyeSpecs: QuickSpec {
       }
       
       describe("newRound") {
-        it("increments the round") {          
+        it("increments the round") {
           bullsEye.newRound()
           bullsEye.newRound()
           
           expect(bullsEye.round).to(equal(3))
+        }
+      }
+      
+      describe("randomNumber") {
+        it("is a number between 0 and 100") {
+          expect(bullsEye.target).to(beGreaterThanOrEqualTo(0))
+          expect(bullsEye.target).to(beLessThanOrEqualTo(100))
         }
       }
     }
