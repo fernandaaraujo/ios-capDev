@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol Game {
+  var round: Int { get }
+}
+
+class BullsEye: Game {
+  let round = 1
+}
