@@ -31,18 +31,43 @@ class Tests: XCTestCase {
         viewController.startNewGame()
       
         XCTAssertEqual(viewController.score, 0)
+        XCTAssertEqual(viewController.round, 1)
     }
+  
+  func testScoreIsComputedWithCorrectValue() {
+      viewController.targetValue = 70
+      viewController.currentValue = 70
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+      viewController.showAlert()
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+      XCTAssertEqual(viewController.score, 200, "Perfect!")
+  }
+  
+  func testScoreIsComputedWithADifferenceSmallerThanFivePoints() {
+    viewController.targetValue = 70
+    viewController.currentValue = 69
+    
+    viewController.showAlert()
+    
+    XCTAssertEqual(viewController.score, 149, "You almost had it!")
+  }
+  
+  func testScoreIsComputedWithADifferenceSmallerOfTenPoints() {
+    viewController.targetValue = 70
+    viewController.currentValue = 65
+    
+    viewController.showAlert()
+    
+    XCTAssertEqual(viewController.score, 95, "Pretty good!")
+  }
+  
+  func testScoreIsComputedWithABigDifference() {
+    viewController.targetValue = 70
+    viewController.currentValue = 50
+    
+    viewController.showAlert()
+    
+    XCTAssertEqual(viewController.score, 80, "Not even close...")
+  }
     
 }
