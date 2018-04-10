@@ -10,8 +10,14 @@ import Foundation
 
 protocol Game {
   var round: Int { get }
+  
+  func newRound()
 }
 
 class BullsEye: Game {
-  let round = 1
+  var round = 1
+  
+  func newRound() {
+    round += 1
+  }
 }
