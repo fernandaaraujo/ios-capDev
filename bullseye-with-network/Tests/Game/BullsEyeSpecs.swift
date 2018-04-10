@@ -38,6 +38,15 @@ class BullsEyeSpecs: QuickSpec {
           
           expect(bullsEye.round).to(equal(3))
         }
+        
+        it("changes the target to a new number") {
+          let firtTarget = bullsEye.target
+          
+          bullsEye.newRound()
+          let newTarget = bullsEye.target
+          
+          expect(firtTarget).toNot(equal(newTarget))
+        }
       }
       
       describe("randomNumber") {
