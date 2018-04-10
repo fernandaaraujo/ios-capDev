@@ -34,7 +34,13 @@ class BullsEye: Game {
     }
     
     func hit(value: Int) {
-        points = 100 - calculateDifference(hitValue: value)
+        let difference = calculateDifference(hitValue: value)
+        points = 100 - difference
+        
+        if difference == 0 {
+            points += 100
+        }
+        
         score += points
     }
     
