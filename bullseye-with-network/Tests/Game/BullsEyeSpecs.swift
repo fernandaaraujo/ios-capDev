@@ -81,6 +81,18 @@ class BullsEyeSpecs: QuickSpec {
         }
       }
       
+      describe("points") {
+        it("difference is a positive number") {
+          let hitValue = 100
+          let targetValue = bullsEye.target
+          let points = 100 - abs(targetValue - hitValue)
+
+          bullsEye.hit(value: hitValue)
+
+          expect(bullsEye.points).to(equal(points))
+        }
+      }
+      
       describe("resetGame") {
         it("resets game round and score") {
           bullsEye.resetGame()

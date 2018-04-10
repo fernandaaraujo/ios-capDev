@@ -22,6 +22,7 @@ class BullsEye: Game {
     var round = 1
     var target = 0
     var score = 0
+    var points = 0
     
     init() {
         target = generateRandomNumber()
@@ -33,7 +34,8 @@ class BullsEye: Game {
     }
     
     func hit(value: Int) {
-        score = score + 100 - abs(target - value)
+        points = 100 - calculateDifference(hitValue: value)
+        score += points
     }
     
     func resetGame() {
@@ -49,5 +51,9 @@ class BullsEye: Game {
         }
         
         return randomTarget
+    }
+    
+    private func calculateDifference(hitValue: Int) -> Int {
+        return abs(target - hitValue)
     }
 }
