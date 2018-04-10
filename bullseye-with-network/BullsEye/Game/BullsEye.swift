@@ -18,6 +18,10 @@ protocol Game {
     func resetGame()
 }
 
+enum Bonus: Int {
+    case perfect = 100
+}
+
 class BullsEye: Game {
     var round = 1
     var target = 0
@@ -34,14 +38,7 @@ class BullsEye: Game {
     }
     
     func hit(value: Int) {
-        let difference = calculateDifference(hitValue: value)
-        points = 100 - difference
-        
-        if difference == 0 {
-            points += 100
-        } else if difference == 1 {
-            points += 50
-        }
+        points = calculatePoints(value: value)
         
         score += points
     }
@@ -61,7 +58,25 @@ class BullsEye: Game {
         return randomTarget
     }
     
+    private func calculatePoints(value: Int) -> Int {
+        let difference = calculateDifference(hitValue: value)
+        
+        return calculateBonus(difference: difference)
+    }
+    
     private func calculateDifference(hitValue: Int) -> Int {
         return abs(target - hitValue)
+    }
+    
+    private func calculateBonus(difference: Int) -> Int {
+        var currentPoints = 100 - difference
+        
+        if difference == 0 {
+            currentPoints += 100
+        } else if difference == 1 {
+            currentPoints += 50
+        }
+        
+        return currentPoints
     }
 }
