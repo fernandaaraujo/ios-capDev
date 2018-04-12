@@ -13,4 +13,11 @@ class GamePresenter {
     view.updateScoreLabel(value: game.score)
     view.updateRoundLabel(value: game.round)
   }
+  
+  func resetGame() {
+    game.resetGame()
+    
+    view.updateScoreLabel(value: game.score)
+    view.updateRoundLabel(value: game.round)
+  }
 }

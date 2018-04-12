@@ -78,7 +78,41 @@ class GamePresenterSpecs: QuickSpec {
           expect(viewMock.didCallUpdateRoundLabel).to(beTrue())
           expect(viewMock.didCallUpdateRoundLabelWithValue).to(equal(2))
         }
+      }
+      
+      describe("resetGame") {
+        var gameMock: GameMock!
+        var viewMock: GameViewControllerMock!
+        var presenter: GamePresenter!
         
+        beforeEach {
+          gameMock = GameMock()
+          viewMock = GameViewControllerMock()
+          presenter = GamePresenter(view: viewMock, game: gameMock)
+        }
+        
+        it("resets Game's round and score") {
+          presenter.hit(value: 16)
+          presenter.hit(value: 16)
+          
+          presenter.resetGame()
+          
+          expect(gameMock.didCallResetGame).to(beTrue())
+          expect(gameMock.round).to(equal(1))
+          expect(gameMock.score).to(equal(0))
+        }
+        
+        it("call the View to resets round and score") {
+          presenter.hit(value: 16)
+          presenter.hit(value: 16)
+          
+          presenter.resetGame()
+          
+          expect(viewMock.didCallUpdateRoundLabel).to(beTrue())
+          expect(viewMock.didCallUpdateRoundLabelWithValue).to(equal(1))
+          expect(viewMock.didCallUpdateScoreLabel).to(beTrue())
+          expect(viewMock.didCallUpdateScoreLabelWithValue).to(equal(0))
+        }
       }
     }
   }
@@ -109,6 +143,7 @@ class GameMock: Game {
   var didCallHit = false
   var didCallHitWithValue: Int?
   var didCallNewRound = false
+  var didCallResetGame = false
   
   func newRound() {
     didCallNewRound = true
@@ -126,7 +161,10 @@ class GameMock: Game {
   }
   
   func resetGame() {
+    didCallResetGame = true
     
+    round = 1
+    score = 0
   }
   
   
