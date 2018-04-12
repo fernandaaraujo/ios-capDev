@@ -29,4 +29,7 @@ class GameViewController: UIViewController {
     roundLabel.text = String(value)
   }
 
+  func updateTargetLabel(value: Int) {
+    targetLabel.text = String(value)
+  }
 }

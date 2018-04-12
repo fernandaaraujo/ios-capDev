@@ -78,6 +78,22 @@ class GamePresenterSpecs: QuickSpec {
           expect(viewMock.didCallUpdateRoundLabel).to(beTrue())
           expect(viewMock.didCallUpdateRoundLabelWithValue).to(equal(2))
         }
+
+        describe("targetValue") {
+          it("generates a target when starts a new round") {
+            presenter.hit(value: 16)
+            
+            expect(gameMock.didCallGenerateTarget).to(beTrue())
+            expect(gameMock.target).to(equal(10))
+          }
+          
+          it("call the View to update the target when starts a new round") {
+            presenter.hit(value: 16)
+
+            expect(viewMock.didCallUpdateTargetLabel).to(beTrue())
+            expect(viewMock.didCallUpdateTargetWithValue).to(equal(10))
+          }
+        }
       }
       
       describe("resetGame") {
@@ -123,6 +139,8 @@ class GameViewControllerMock: GameViewController {
   var didCallUpdateScoreLabelWithValue: Int?
   var didCallUpdateRoundLabel = false
   var didCallUpdateRoundLabelWithValue: Int?
+  var didCallUpdateTargetLabel = false
+  var didCallUpdateTargetWithValue: Int?
   
   override func updateScoreLabel(value: Int) {
     didCallUpdateScoreLabel = true
@@ -132,6 +150,11 @@ class GameViewControllerMock: GameViewController {
   override func updateRoundLabel(value: Int) {
     didCallUpdateRoundLabel = true
     didCallUpdateRoundLabelWithValue = value
+  }
+  
+  override func updateTargetLabel(value: Int) {
+    didCallUpdateTargetLabel = true
+    didCallUpdateTargetWithValue = value
   }
 }
 
@@ -144,11 +167,13 @@ class GameMock: Game {
   var didCallHitWithValue: Int?
   var didCallNewRound = false
   var didCallResetGame = false
+  var didCallGenerateTarget = false
   
   func newRound() {
     didCallNewRound = true
   
     round += round
+    target = generateTarget()
   }
   
   func hit(value: Int) -> Perfection {
@@ -167,5 +192,10 @@ class GameMock: Game {
     score = 0
   }
   
+  func generateTarget() -> Int {
+    didCallGenerateTarget = true
+    
+    return 10
+  }
   
 }
