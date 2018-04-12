@@ -10,6 +10,8 @@ class GamePresenter {
   
   func hit(value: Int) {
     _ = game.hit(value: value)
+    
+    game.newRound()
     view.updateScoreLabel(value: game.score)
     view.updateRoundLabel(value: game.round)
   }
