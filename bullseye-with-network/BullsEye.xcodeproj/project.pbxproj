@@ -12,9 +12,12 @@
 		576C24442076518E008E9B82 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C24432076518E008E9B82 /* ScoresViewController.swift */; };
 		576C244620766C6B008E9B82 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C244520766C6B008E9B82 /* ScoreCell.swift */; };
 		576C24492076721F008E9B82 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C24482076721F008E9B82 /* Score.swift */; };
+		9142CCCA207E3A7200841A95 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142CCC9207E3A7200841A95 /* GameViewController.swift */; };
+		9142CCCD207E3C5800841A95 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142CCCC207E3C5800841A95 /* GamePresenter.swift */; };
+		9142CCD0207E3C6E00841A95 /* GamePresenterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142CCCF207E3C6E00841A95 /* GamePresenterSpecs.swift */; };
+		9142CCD3207E43A500841A95 /* GameViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142CCD2207E43A500841A95 /* GameViewControllerSpecs.swift */; };
 		9151A014207CE7870011A3E2 /* BullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151A013207CE7870011A3E2 /* BullsEye.swift */; };
 		9151A017207CE7A80011A3E2 /* BullsEyeSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151A016207CE7A80011A3E2 /* BullsEyeSpecs.swift */; };
-		91DDE780207B96E200D3D6E4 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DDE77F207B96E200D3D6E4 /* Tests.swift */; };
 		DD848B731EEBA850007D8A56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD848B721EEBA850007D8A56 /* AppDelegate.swift */; };
 		DD848B751EEBA850007D8A56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD848B741EEBA850007D8A56 /* ViewController.swift */; };
 		DD848B781EEBA850007D8A56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD848B761EEBA850007D8A56 /* Main.storyboard */; };
@@ -42,6 +45,10 @@
 		576C244520766C6B008E9B82 /* ScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		576C24482076721F008E9B82 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		789966C8DD35383FDDF6CEB8 /* Pods_BullsEye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BullsEye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9142CCC9207E3A7200841A95 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		9142CCCC207E3C5800841A95 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		9142CCCF207E3C6E00841A95 /* GamePresenterSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenterSpecs.swift; sourceTree = "<group>"; };
+		9142CCD2207E43A500841A95 /* GameViewControllerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerSpecs.swift; sourceTree = "<group>"; };
 		9151A013207CE7870011A3E2 /* BullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEye.swift; sourceTree = "<group>"; };
 		9151A016207CE7A80011A3E2 /* BullsEyeSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeSpecs.swift; sourceTree = "<group>"; };
 		91DDE77D207B96E200D3D6E4 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +114,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9142CCC8207E3A5600841A95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9142CCC9207E3A7200841A95 /* GameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9142CCCB207E3C4E00841A95 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9142CCCC207E3C5800841A95 /* GamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9142CCCE207E3C5F00841A95 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9142CCCF207E3C6E00841A95 /* GamePresenterSpecs.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9142CCD1207E439900841A95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9142CCD2207E43A500841A95 /* GameViewControllerSpecs.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9151A012207CE75E0011A3E2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +165,8 @@
 		91DDE77E207B96E200D3D6E4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9142CCD1207E439900841A95 /* View */,
+				9142CCCE207E3C5F00841A95 /* Presenter */,
 				9151A015207CE7920011A3E2 /* Game */,
 				91DDE77F207B96E200D3D6E4 /* Tests.swift */,
 				91DDE781207B96E200D3D6E4 /* Info.plist */,
@@ -159,6 +200,8 @@
 		DD848B711EEBA850007D8A56 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				9142CCCB207E3C4E00841A95 /* Presenter */,
+				9142CCC8207E3A5600841A95 /* View */,
 				9151A012207CE75E0011A3E2 /* Game */,
 				576C244720767216008E9B82 /* Model */,
 				DD4643A51EF214F400E877E9 /* BullsEye.html */,
@@ -358,8 +401,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91DDE780207B96E200D3D6E4 /* Tests.swift in Sources */,
+				9142CCD3207E43A500841A95 /* GameViewControllerSpecs.swift in Sources */,
 				9151A017207CE7A80011A3E2 /* BullsEyeSpecs.swift in Sources */,
+				9142CCD0207E3C6E00841A95 /* GamePresenterSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +415,8 @@
 				DDFCE69C1EF0D7DF00B42325 /* AboutViewController.swift in Sources */,
 				DD848B751EEBA850007D8A56 /* ViewController.swift in Sources */,
 				DD848B731EEBA850007D8A56 /* AppDelegate.swift in Sources */,
+				9142CCCA207E3A7200841A95 /* GameViewController.swift in Sources */,
+				9142CCCD207E3C5800841A95 /* GamePresenter.swift in Sources */,
 				576C244620766C6B008E9B82 /* ScoreCell.swift in Sources */,
 				576C24492076721F008E9B82 /* Score.swift in Sources */,
 				576C24442076518E008E9B82 /* ScoresViewController.swift in Sources */,
