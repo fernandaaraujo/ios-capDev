@@ -10,7 +10,7 @@ class GamePresenter {
   
   func hit(value: Int) {
     _ = game.hit(value: value)
-        
+    
     view.updateScoreLabel(value: game.score)
     view.updateRoundLabel(value: game.round)
     view.updateTargetLabel(value: game.target)
@@ -21,5 +21,6 @@ class GamePresenter {
     
     view.updateScoreLabel(value: game.score)
     view.updateRoundLabel(value: game.round)
+    view.updateTargetLabel(value: game.target)
   }
 }

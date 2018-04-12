@@ -116,6 +116,7 @@ class GamePresenterSpecs: QuickSpec {
           expect(gameMock.didCallResetGame).to(beTrue())
           expect(gameMock.round).to(equal(1))
           expect(gameMock.score).to(equal(0))
+          expect(gameMock.target).to(equal(10))
         }
         
         it("call the View to resets round and score") {
